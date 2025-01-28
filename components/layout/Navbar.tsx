@@ -22,20 +22,25 @@ const Navbar = () => {
 };
 
 return (
-    <nav className='bg-gray-400 p-4 flex items-center justify-between'>
+    <nav className='  flex items-center justify-between'>
         {/* logo */}
-        <Link href="/" className='text-white font-bold text-xl'>
-            <Image src="/Logo-01.png" alt="BookStore Logo" width={400} height={400} />
-        </Link>
+        <div className=''>
+            <Link href="/" className='flex items-center'>
+                <Image src="/Logo-01.png" alt="BookStore Logo" width={400} height={400} />
+            </Link>
+
+
+        </div>
+      
 
         {/* searchbar    */}
-        <form onSubmit={handleSearchSubmit} className='flex flex-grow mx-4 relative'>
+        <form onSubmit={handleSearchSubmit} className='flex flex-grow m-4 relative'>
             <input
                 type="text"
                 placeholder='Search Books'
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className='p-2 w-full rounded-1-md rounded-full border-none focus:outline-none text-black'
+                className='p-2 w-full rounded-1-md rounded-full border focus:outline text-black'
             />
             <button type="submit" className='absolute right-2 top-1/2 transform -translate-y-1/2 text-red-500 '>
                 <AiOutlineSearch size={20}/>
@@ -44,14 +49,14 @@ return (
 
 
         {/* Navigation Buttons */}
-        <div className='flex items-center space-x-4'>
-            <Link href="/" className={ classNames("text-gray-300 hover:text-white", {"text-white": pathName === "/"})} >
+        <div className='flex items-center space-x-4 p-4'>
+            <Link href="/" className={ classNames("text-black-300 hover:text-red-600", {"text-black": pathName === "/"})} >
                 Home
             </Link>
-            <Link href="/signup" className={classNames("text-gray-300 hover: text-white", {"text-white": pathName === "/signup"})}>
+            <Link href="/signup" className={classNames("text-black-300 hover:text-red-600", {"text-white": pathName === "/signup"})}>
                 Signup/Login
             </Link>
-            <Link href="/cart" className='text-gray-300 hover:text-white relative'>
+            <Link href="/cart" className='text-black-300 hover:text-red-600 relative'>
                 <AiOutlineShoppingCart size={24}/>
                 <span className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-xs'>
                     0
