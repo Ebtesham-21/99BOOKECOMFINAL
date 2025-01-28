@@ -22,10 +22,10 @@ const Navbar = () => {
 };
 
 return (
-    <nav className='  flex items-center justify-between'>
+    <nav className=' mt-12 flex items-center justify-between'>
         {/* logo */}
         <div className=''>
-            <Link href="/" className='flex items-center'>
+            <Link href="/" className='flex items-start '>
                 <Image src="/Logo-01.png" alt="BookStore Logo" width={400} height={400} />
             </Link>
 

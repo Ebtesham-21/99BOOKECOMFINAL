@@ -12,17 +12,17 @@ interface Slide {
 const ImageSlider:React.FC = () => {
     const slides: Slide[] = [
         {
-            imageUrl: '/images/slides1.jpg',
+            imageUrl: '/images/slide1.png',
             title:'Welcome to Our Bookstore',
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
         {
-            imageUrl: '/images/slides1.jpg',
+            imageUrl: '/images/slide1.png',
             title:'Welcome to Our Bookstore',
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
         {
-            imageUrl: '/images/slides1.jpg',
+            imageUrl: '/images/slide1.png',
             title:'Welcome to Our Bookstore',
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
@@ -37,4 +37,37 @@ const ImageSlider:React.FC = () => {
 
         return () => clearInterval(timer);
     }, [slides.length]);
-}
+
+    return (
+        <div className="relative w-full h-[955px] overflow-hidden">
+            {slides.map((slide, index) => (
+                <div
+                    key={index}
+                    className={`absolute w-full h-full transition-opacity duration-500 ease-in-out ${
+                        index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                    <div className="absolute h-full w-full">
+                        <Image
+                        src={slide.imageUrl}
+                        alt={`Slide $(index + 1)`}
+                        layout="fill"
+                        objectFit="cover"
+                        className = "object-cover"
+
+                        />
+
+                    </div>
+                    <div className="absolute top-1/2 left-1/8 transform -translate-y-1/2 text-white max-w-lg z-10">
+                        <h2 className="text-3xl font-bold mb-2">{slide.title}</h2>
+                        <p className="text-lg">{slide.description}</p>
+                    </div>
+
+                </div>
+            ))}
+
+        </div>
+    );
+};
+
+export default ImageSlider;
