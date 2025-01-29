@@ -36,12 +36,12 @@ const ExploreByAge: React.FC = () => {
 
 
     return (
-        <div className="w-full px-4 py-8 flex flex-col items-center justify-center bg-[#3A2E92] text-white">
+        <div className="w-fullp  py-32 flex flex-col items-center justify-center bg-[#3A2E92] text-white">
             <h2 className="text-5xl font-bold mb-8 text-center text-[#F5D36B]">
                 Explore Books By Age
 
             </h2>
-            <div className="flex space-x-4 justify-center">
+            <div className="flex space-x-4 justify-around w-full max-w-6xl">
                 {ageCategories.map((category) => (
                     <div key={category.id} className="flex flex-col items-center">
                         <div className="relative h-[200px] w-[200px] mb-4">
