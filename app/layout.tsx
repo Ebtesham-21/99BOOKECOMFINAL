@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import ImageSlider from "@/components/layout/ImageSlider";
+import LatestAdditions from "@/components/LatestAdditions";
+import ExploreByAge from "@/components/ExploreByAge";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +38,12 @@ export default function RootLayout({
           </div>
           <div className="relative z-0">
             {children}
+          </div>
+          <div>
+            <LatestAdditions/>
+          </div>
+          <div>
+            <ExploreByAge/>
           </div>
 
         </div>

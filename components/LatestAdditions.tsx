@@ -14,21 +14,21 @@ const LatestAdditions: React.FC = () => {
         {
             id: 1,
             title: "Lily Day",
-            imageUrl: "/images/book1.jpg",
+            imageUrl: "/images/book1.png",
             price: 5,
 
         },
         {
             id: 2,
             title: "Ekusher Upohar",
-            imageUrl: "/images/book1.jpg",
+            imageUrl: "/images/book2.png",
             price: 5,
 
         },
         {
-            id: 2,
+            id: 3,
             title: "Murgir Chanapona",
-            imageUrl: "/images/book1.jpg",
+            imageUrl: "/images/book3.png",
             price: 5,
 
         },
@@ -37,13 +37,14 @@ const LatestAdditions: React.FC = () => {
 
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-4">Our Latest Additions</h2>
-            <div className="flex space-x-4">
+        <div className="w-full  px-4 py-8 bg-[#FFEED6] items-center justify-center relative">
+            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#DE3D3A] rounded-b-3xl z-0"> </div>
+            <h2 className="text-8xl font-bold mb-4 text-center text-red-600  ">Our Latest Additions</h2>
+            <div className="flex space-x-4 z-10">
                 {books.map((book) => (
-                    <div key= {book.id} className="bg-white rounded-lg shadow-md p-4 w-1/3" >
+                    <div key= {book.id} className=" rounded-lg relative  p-4 w-1/3  items-center " >
                         <div
-                            className="relative h-48 mb-4">
+                            className="relative h-[600px] mb-4">
                                 <Image
                                     src={book.imageUrl}
                                     alt={book.title}
@@ -52,11 +53,14 @@ const LatestAdditions: React.FC = () => {
                                     className="rounded-md"
                                 />
                         </div>
-                        <h3 className="text-lg font-semibold mb-2">{book.title}</h3>
-                        <p className="text-gray-700 mb-2">Price: ${book.price.toFixed(2)}</p>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <h3 className="text-lg text-white font-semibold mb-2 text-center">{book.title}</h3>
+                        <p className="text-white mb-2 text-center">Price: ${book.price.toFixed(2)}</p>
+                        <div className="flex justify-center">
+                            <button className="bg-[#FFEED6] hover:bg-[#F7B86D]  text-black font-bold py-4 px-12 rounded-full flex justify-center ">
+                                Add to Cart
+                            </button>
+                        </div>
+                       
                     </div>
                 ))}
 
