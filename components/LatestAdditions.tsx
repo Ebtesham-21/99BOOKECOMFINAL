@@ -54,7 +54,7 @@ const LatestAdditions: React.FC = () => {
                                 />
                         </div>
                         <h3 className="text-lg text-white font-semibold mb-2 text-center">{book.title}</h3>
-                        <p className="text-white mb-2 text-center">Price: ${book.price.toFixed(2)}</p>
+                        <p className="text-white mb-2 text-center"> ${book.price.toFixed(2)}</p>
                         <div className="flex justify-center">
                             <button className="bg-[#FFEED6] hover:bg-[#F7B86D]  text-black font-bold py-4 px-12 rounded-full flex justify-center ">
                                 Add to Cart

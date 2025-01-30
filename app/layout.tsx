@@ -5,6 +5,7 @@ import Navbar from "../components/layout/Navbar";
 import ImageSlider from "@/components/layout/ImageSlider";
 import LatestAdditions from "@/components/LatestAdditions";
 import ExploreByAge from "@/components/ExploreByAge";
+import BookCategories from "@/components/BookCategories";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,14 +37,17 @@ export default function RootLayout({
           <div className="absolute top-0 w-full z-10">
             <Navbar />
           </div>
-          <div className="relative z-0">
+          {/* <div className="relative z-0">
             {children}
-          </div>
+          </div> */}
           <div>
             <LatestAdditions/>
           </div>
           <div>
             <ExploreByAge/>
+          </div>
+          <div>
+            <BookCategories/>
           </div>
 
         </div>

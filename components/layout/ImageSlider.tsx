@@ -1,7 +1,11 @@
 'use client';
 import React, {useState, useEffect} from "react";
 import Image  from "next/image";
+import localFont from 'next/font/local';
 
+// const charmeladeFont = localFont({
+//     src=["./fonts/Charmelade-Regular.ttf"],
+// });
 
 interface Slide {
     imageUrl: string;
@@ -13,17 +17,17 @@ const ImageSlider:React.FC = () => {
     const slides: Slide[] = [
         {
             imageUrl: '/images/slide1.png',
-            title:'Welcome to Our Bookstore',
+            title:"LET'S READ  SOMETHING  DIFFERENT",
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
         {
             imageUrl: '/images/slide1.png',
-            title:'Welcome to Our Bookstore',
+            title:"Slide 2",
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
         {
             imageUrl: '/images/slide1.png',
-            title:'Welcome to Our Bookstore',
+            title:"Slide 3",
             description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
         },
     ];
@@ -58,9 +62,9 @@ const ImageSlider:React.FC = () => {
                         />
 
                     </div>
-                    <div className="absolute top-1/2 left-1/8 transform -translate-y-1/2 text-white max-w-lg z-10">
-                        <h2 className="text-3xl font-bold mb-2">{slide.title}</h2>
-                        <p className="text-lg">{slide.description}</p>
+                    <div className="absolute top-1/2 left-1/8 transform -translate-y-1/2 text-[#DA1725] max-w-lg z-10 pl-[151px]">
+                        <h2 className="text-6xl font-bold mb-2">{slide.title}</h2>
+                        {/* <p className="text-lg">{slide.description}</p> */}
                     </div>
 
                 </div>
