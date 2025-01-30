@@ -6,6 +6,7 @@ import ImageSlider from "@/components/layout/ImageSlider";
 import LatestAdditions from "@/components/LatestAdditions";
 import ExploreByAge from "@/components/ExploreByAge";
 import BookCategories from "@/components/BookCategories";
+import BookBundles from "@/components/BookBundles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,9 @@ export default function RootLayout({
           </div>
           <div>
             <BookCategories/>
+          </div>
+          <div>
+            <BookBundles/>
           </div>
 
         </div>
