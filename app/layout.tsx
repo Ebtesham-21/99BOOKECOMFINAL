@@ -7,6 +7,7 @@ import LatestAdditions from "@/components/LatestAdditions";
 import ExploreByAge from "@/components/ExploreByAge";
 import BookCategories from "@/components/BookCategories";
 import BookBundles from "@/components/BookBundles";
+import WhyAreWeSpecial from "@/components/WhyAreWeSpecial";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,9 @@ export default function RootLayout({
           </div>
           <div>
             <BookBundles/>
+          </div>
+          <div>
+            <WhyAreWeSpecial/>
           </div>
 
         </div>
