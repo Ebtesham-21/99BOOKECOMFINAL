@@ -8,6 +8,7 @@ import ExploreByAge from "@/components/ExploreByAge";
 import BookCategories from "@/components/BookCategories";
 import BookBundles from "@/components/BookBundles";
 import WhyAreWeSpecial from "@/components/WhyAreWeSpecial";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,10 @@ export default function RootLayout({
           </div>
           <div>
             <WhyAreWeSpecial/>
+          </div>
+
+          <div >
+            <Footer/>
           </div>
 
         </div>
