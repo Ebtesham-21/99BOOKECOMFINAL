@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin } from "reac
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#3A2E92] text-white pt-32 pb-12">
+        <footer className="bg-[#3A2E92] text-white pt-64 pb-12">
             <div className="container mx-auto px-4 flex flex-col">
                 {/* NewsLetter Section      */}
                 <div className="text-center mb-8">
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
 
                     </form>
                 </div>
-                <div className="flex justify-between items-center mt-8">
+                <div className="flex justify-between items-center mt-40">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image src="/logo.png" alt="BookStore Logo" width={400} height={400} />
@@ -35,19 +35,19 @@ const Footer: React.FC = () => {
 
                     <div className="flex space-x-4">
                         <Link href="#" className="hover:text-yellow-500">
-                            <FaFacebook size={72}/>
+                            <FaFacebook size={52}/>
                         </Link>
                         <Link href="#" className="hover:text-yellow-500">
-                            <FaInstagram size={72}/>
+                            <FaInstagram size={52}/>
                         </Link>
                         <Link href="#" className="hover:text-yellow-500">
-                            <FaYoutube size={72}/>
+                            <FaYoutube size={52}/>
                         </Link>
                         <Link href="#" className="hover:text-yellow-500">
-                            <FaWhatsapp size={72}/>
+                            <FaWhatsapp size={52}/>
                         </Link>
                         <Link href="#" className="hover:text-yellow-500">
-                            <FaLinkedin size={72}/>
+                            <FaLinkedin size={52}/>
                         </Link>
 
                     </div>
