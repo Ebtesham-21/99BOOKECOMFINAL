@@ -37,10 +37,11 @@ const LatestAdditions: React.FC = () => {
 
 
     return (
-        <div className="w-full  px-4 py-8 bg-[#FFEED6] items-center justify-center relative">
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#DE3D3A] rounded-b-3xl z-0"> </div>
+        <div className="w-full  px-4 py-8 bg-[#FFEED6] items-center justify-center relative ">
+            
+            <div className="absolute bottom-0 mb-[85px]  w-full w-[calc(100%-164px)] mx-[82px] h-1/2 bg-[#DE3D3A] rounded-3xl z-5"> </div>
             <h2 className="text-8xl font-bold mb-4 text-center text-red-600  ">Our Latest Additions</h2>
-            <div className="flex space-x-4 z-10">
+            <div className="flex mx-[82px] mb-[90px]   z-10">
                 {books.map((book) => (
                     <div key= {book.id} className=" rounded-lg relative  p-4 w-1/3  items-center " >
                         <div
@@ -66,6 +67,7 @@ const LatestAdditions: React.FC = () => {
 
             </div>
         </div>
+     
     );
 
 

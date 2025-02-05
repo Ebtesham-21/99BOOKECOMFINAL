@@ -57,9 +57,9 @@ const WhyAreWeSpecial: React.FC = () => {
             <h2 className="text-5xl font-bold mb-8 text-center text-[#F5D36B]">
                 WHY ARE WE SPECIAL
             </h2>
-            <div className="w-full max-w-6xl">
+            <div className="w-full max-w-6xl flex flex-col items-center ">
                 {features.map((feature) => (
-                    <div key={feature.id} className="flex items-start py-4">
+                    <div key={feature.id} className="flex  items-start justify-center py-4">
                         <div className="relative w-[508px]  h-[303px] mr-4 flex-shrink-0">
                             <Image 
                                 src={feature.imageUrl}
@@ -70,7 +70,7 @@ const WhyAreWeSpecial: React.FC = () => {
                             />
 
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col py-12">
                             <h3 className="text-3xl font-semibold mb-2">
                                 {feature.title}
                             </h3>

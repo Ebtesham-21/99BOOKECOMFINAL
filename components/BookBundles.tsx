@@ -66,6 +66,8 @@
 
         return (
             <div className="w-full bg-[#3A2E92] px-4 py-8 flex flex-col items-center justify-center text-white">
+               
+                <div className="">
                  <h2 className="text-5xl font-bold mt-6 text-center text-[#F5D368]">
                     BOOK BUNDLES
                 </h2>
@@ -102,6 +104,7 @@
                          <AiOutlineRight size={30} />
                     </button>
                 </div>
+            </div>
             </div>
         );
     };
