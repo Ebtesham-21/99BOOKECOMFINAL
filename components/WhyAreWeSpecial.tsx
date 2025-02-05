@@ -53,7 +53,7 @@ const WhyAreWeSpecial: React.FC = () => {
     return (
         <div className="w-full  flex flex-col items-center  text-white">
             <div className="w-full bg-[#FFEED6] ">
-            <div className=" bg-[#B32025] rounded-md mx-[120px]  px-8 py-8">
+            <div className=" bg-[#B32025] rounded-b-2xl mx-[120px] mb-[84px]  px-8 py-8">
             <h2 className="text-5xl font-bold mb-8 text-center text-[#F5D36B]">
                 WHY ARE WE SPECIAL
             </h2>
