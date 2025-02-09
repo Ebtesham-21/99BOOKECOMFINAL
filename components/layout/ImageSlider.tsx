@@ -58,7 +58,7 @@ const ImageSlider: React.FC = () => {
                     </div>
 
                     {/* Text Content */}
-                    <div className="absolute top-1/2 left-1/2 md:left-1/8 transform -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 text-[#DA1725] max-w-lg z-10 text-center md:text-left px-6 md:pl-[151px]">
+                    <div className="absolute top-1/2 left-4 md:left-12 lg:left-20 transform -translate-y-1/2 text-[#DA1725] max-w-lg z-10 text-left px-6">
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2">{slide.title}</h2>
                     </div>
                 </div>

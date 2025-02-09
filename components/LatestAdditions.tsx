@@ -45,7 +45,7 @@ const LatestAdditions: React.FC = () => {
                 {books.map((book) => (
                     <div key={book.id} className="relative   rounded-lg p-6 flex flex-col items-center text-center">
                         {/* Book Image */}
-                        <div className="relative w-full h-80 md:h-96 mb-4">
+                        <div className="relative w-full h-80  md:h-[400px] md:w-[400px] mb-4">
                             <Image
                                 src={book.imageUrl}
                                 alt={book.title}
