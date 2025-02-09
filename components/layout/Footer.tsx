@@ -1,9 +1,45 @@
-import React from "react";
+"use client";
+import React, {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 const Footer: React.FC = () => {
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if(!email) {
+            alert("Please enter a valid email.");
+            return;
+        }
+
+        setLoading(true);
+
+
+        try {
+            const response = await fetch("/api/Subscribe", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({email}),
+            });
+
+            const data = await response.json();
+            if(response.ok) {
+                alert("Thanks for subscribing!");
+                setEmail("");
+            } else {
+                alert(data.message || "Something went wrong.");
+            }
+        } catch (error) {
+            alert("An error occurred. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <footer className="bg-[#3A2E92] text-white pt-32 md:pt-64 pb-12">
             <div className="container mx-auto px-4 flex flex-col items-center">
