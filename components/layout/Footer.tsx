@@ -6,37 +6,22 @@ import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin } from "reac
 
 const Footer: React.FC = () => {
     const [email, setEmail] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
 
-    const handleSubmit = async (e: React.FormEvent) => {
+
+    const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
+        const res = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email}),
+        });
 
-        if(!email) {
-            alert("Please enter a valid email.");
-            return;
-        }
-
-        setLoading(true);
-
-
-        try {
-            const response = await fetch("/api/Subscribe", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({email}),
-            });
-
-            const data = await response.json();
-            if(response.ok) {
-                alert("Thanks for subscribing!");
-                setEmail("");
-            } else {
-                alert(data.message || "Something went wrong.");
-            }
-        } catch (error) {
-            alert("An error occurred. Please try again.");
-        } finally {
-            setLoading(false);
+        if(res.ok) {
+            setMessage("Thanks for subscribing!");
+            setEmail("");
+        } else {
+            setMessage("Subscription failed, try again.");
         }
     };
 
@@ -49,15 +34,22 @@ const Footer: React.FC = () => {
                         Subscribe to our Newsletter
                     </h3>
 
-                    <form className="flex flex-col md:flex-row justify-center items-center w-full">
+                    <form onSubmit={handleSubmit}  className="flex flex-col md:flex-row justify-center items-center w-full">
                         <input 
                             type="email"
                             placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="text-black px-6 py-3 rounded-full focus:outline-none w-full md:w-96 text-lg md:text-2xl"
                         />
-                        {/* <button type="submit" className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-r-md font-semibold">
-                            Subscribe
-                        </button> */}
+                        <button
+                         type="submit"
+                         className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-semibold text-lg md:text-2xl"
+                         disabled={loading}
+                        >
+                            {loading ? "Subscribing..." : "Subscribe"}
+                        </button>
+                        
                     </form>
                 </div>
 

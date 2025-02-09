@@ -31,7 +31,7 @@ const LatestAdditions: React.FC = () => {
     ];
 
     return (
-        <div className="w-full px-6 md:px-20 py-8 bg-[#FFEED6] flex flex-col items-center relative">
+        <div className="w-full px-6 md:px-20 py-8 my-12 bg-[#FFEED6] flex flex-col items-center relative">
             {/* Background Shape */}
             <div className="absolute bottom-0 w-full h-1/2 bg-[#DE3D3A] rounded-3xl z-0 mx-auto max-w-[calc(100%-40px)] md:max-w-[calc(100%-164px)]" />
 
