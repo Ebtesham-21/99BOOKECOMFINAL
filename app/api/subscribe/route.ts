@@ -1,34 +1,40 @@
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
-    const {email} = await req.json();
-
-    if(!email) {
-        return NextResponse.json({error: "Email is required"}, {status: 400});
-    }
-
-    const transporter = nodemailer.createTransport({
-        host: "smtp-relay.sendinblue.com",
-        port: 587,
-        secure: false,
-        auth: {
-            user: "your-sendinblue-email@example.com",
-            pass: "your-sendinblue-api-key",
-        },
-    });
-
+export async function POST(req: Request) {
     try {
-        await transporter.sendMail({
-            from: '"Bookstore Newsletter" <your-email@example.com>',
-            to: email,
-            subject: "Thanks for subscribing!",
-            text: "Thank you for subscribing to our Newsletter",
-            html: "<p> Thank you for subscribing to our Newsletter. <p>",
+        const {email} = await req.json();
+
+        if(!email) {
+            return NextResponse.json({error: "Email is required"}, {status: 400});
+        }
+
+        const API_KEY = process.env.MAILCHIMP_API_KEY;
+        const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+        const DATACENTER = API_KEY?.split("-")[1];
+
+        const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+
+
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `apikey ${API_KEY}`,
+            },
+            body: JSON.stringify({
+                email_address: email,
+                status: "susbscribed",
+            }),
         });
 
-        return NextResponse.json({message: "Subscription successful!"});
+        if(!response.ok) {
+            const errorData = await response.json();
+            return NextResponse.json({error: errorData.detail}, { status: response.status});
+        }
+
+        return NextResponse.json({message: "Successfully subscribed!"}, {status: 200});
+
     } catch (error) {
-        return NextResponse.json({error: "Failed to send email"}, {status: 500});
+        return NextResponse.json({error: "Internal Server Error"}, {status: 500});
     }
 }
