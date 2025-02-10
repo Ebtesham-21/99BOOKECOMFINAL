@@ -41,15 +41,15 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <footer className="bg-[#3A2E92] text-white p-12 text-center">
-            <h3 className="text-3xl font-semibold">Subscribe to our Newsletter</h3>
+        <footer className="bg-[#3A2E92] text-white pt-56 px-20 pb-8 text-center">
+            <h3 className="text-6xl font-semibold">Subscribe to our Newsletter</h3>
             <form onSubmit={handleSubscribe} className="mt-4 flex flex-col items-center">
                 <input
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-2 rounded-full text-black w-96"
+                    className="px-4 py-2 rounded-full text-black w-[600px] h-[50px]"
                     required
                 />
 
@@ -66,7 +66,15 @@ const Footer: React.FC = () => {
 
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                    <div className="bg-white ">
+                    <div className="bg-white text-black p-6 rounded-lg shadow-lg text-center w-80 transition-all">
+                        <h2 className="text-xl font-semibold mb-2">Thank You!</h2>
+                        <p className="text-lg ">Subscribed sucessfully</p>
+                        <button onClick={() => setShowModal(false)}
+                          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-full font-bold"  
+                            >
+                                Close
+
+                        </button>
 
                     </div>
                 </div>
