@@ -8,6 +8,7 @@ const Footer: React.FC = () => {
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -43,8 +44,33 @@ const Footer: React.FC = () => {
         <footer className="bg-[#3A2E92] text-white p-12 text-center">
             <h3 className="text-3xl font-semibold">Subscribe to our Newsletter</h3>
             <form onSubmit={handleSubscribe} className="mt-4 flex flex-col items-center">
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="px-4 py-2 rounded-full text-black w-96"
+                    required
+                />
+
+                <button type="submit" className="mt-4 bg-yellow-500 px-6 py-2 rounded-full font-bold">
+                    Subscribe
+
+                </button>
 
             </form>
+            {message && <p className="mt-4">{message}</p>}
+
+
+            {/* popup modal */}
+
+            {showModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                    <div className="bg-white ">
+
+                    </div>
+                </div>
+            )}
 
 
                 {/* Logo & Social Icons Section */}
