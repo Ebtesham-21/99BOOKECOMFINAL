@@ -11,36 +11,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-    <div className="relative">
-          <ImageSlider/>
-          <div className="absolute top-0 w-full z-10">
-            <Navbar />
-          </div>
-          {/* <div className="relative z-0">
-            {children}
-          </div> */}
-          <div>
-            <LatestAdditions/>
-          </div>
-          <div>
-            <ExploreByAge/>
-          </div>
-          <div>
-            <BookCategories/>
-          </div>
-          <div>
-            <BookBundles/>
-          </div>
-          <div>
-            <WhyAreWeSpecial/>
-          </div>
-
-          <div >
-            <Footer/>
-          </div>
-
-        </div>
-
+   
    
     </>
   );
