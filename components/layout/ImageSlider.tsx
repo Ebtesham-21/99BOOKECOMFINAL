@@ -9,31 +9,41 @@ interface Slide {
 }
 
 const ImageSlider: React.FC = () => {
-    const slides: Slide[] = [
-        {
-            imageUrl: '/images/slide1.png',
-            title: "LET'S READ SOMETHING DIFFERENT",
-            description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
-        },
-        {
-            imageUrl: '/images/slide1.png',
-            title: "Slide 2",
-            description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
-        },
-        {
-            imageUrl: '/images/slide1.png',
-            title: "Slide 3",
-            description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
-        },
-    ];
+    // const slides: Slide[] = [
+    //     {
+    //         imageUrl: '/images/slide1.png',
+    //         title: "LET'S READ SOMETHING DIFFERENT",
+    //         description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
+    //     },
+    //     {
+    //         imageUrl: '/images/slide1.png',
+    //         title: "Slide 2",
+    //         description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
+    //     },
+    //     {
+    //         imageUrl: '/images/slide1.png',
+    //         title: "Slide 3",
+    //         description: 'Discover a world of captivating stories and knowledge. Explore our vast collection of books today.',
+    //     },
+    // ];
 
+    const [slides, setSlides] = useState<Slide[]>([]);
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const fetchSlides = async () => {
+            const res = await fetch("/api/slides");
+            const data = await res.json();
+            setSlides(data);
+        };
+        fetchSlides();
+    }, []);
+
 
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
         }, 5000);
-
         return () => clearInterval(timer);
     }, [slides.length]);
 

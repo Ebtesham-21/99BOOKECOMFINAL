@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#FFEED6]`}
       >
-        <div className="relative">
+         <div className="relative">
           <ImageSlider/>
           <div className="absolute top-0 w-full z-10">
             <Navbar />
@@ -65,6 +65,7 @@ export default function RootLayout({
 
         </div>
 
+        
    
       </body>
     </html>
