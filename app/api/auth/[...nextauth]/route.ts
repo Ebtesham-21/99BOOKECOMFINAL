@@ -1,36 +1,40 @@
-import NextAuth from "next-auth";
-import Credentials from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
+import NextAuth, { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-
-export const authOptions = {
+export const authOptions: AuthOptions = {
     providers: [
-        CredentialsProvider ({
+        CredentialsProvider({
             name: "Credentials",
             credentials: {
-                email: {label: "Email", type: "email", placeholder: "admin@example.com"},
-                password: {label: "Password", type: "password"},
+                email: { label: "Email", type: "email", placeholder: "admin@example.com" },
+                password: { label: "Password", type: "password" },
             },
-
             async authorize(credentials) {
-                const adminEmail = process.env.ADMIN_EMAIL;
-                const adminPassword = process.env.ADMIN_PASSWORD;
+              if(!credentials || !credentials.email || !credentials.password){
+                throw new Error("Missing email or password");
+              }
 
-                if(credentials?.email === adminEmail && credentials?.password === adminPassword) {
-                    return {id: "1", name: "Admin", email: credentials.email};
-                }
+              const adminEmail = process.env.ADMIN_EMAIL;
+              const adminPassword = process.env.ADMIN_PASSWORD;
+
+
+              if(credentials.email === adminEmail && credentials.password === adminPassword) {
+                return {id: "1", name: "Admin", email: credentials.email};
+
 
                 throw new Error("Invalid credentials");
- 
+              }
             },
         }),
     ],
-    page: {
-        signIn: "/auth/signin",
+    pages: {
+        signIn: "/auth/signin", // Fix the typo (was "page:")
     },
     secret: process.env.NEXTAUTH_SECRET,
-
+    session: {
+        strategy: "jwt", // Ensures stateless sessions
+    },
 };
 
 const handler = NextAuth(authOptions);
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };
