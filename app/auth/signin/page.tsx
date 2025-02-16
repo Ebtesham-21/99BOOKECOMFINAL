@@ -12,6 +12,8 @@ export default function SignInPage() {
                 Sign In with Google
 
             </button>
+            <p> Don't have an account? <a href="/auth/signup" className="text-blue-500">Sign Up</a></p>
+
 
         </div>
     );
